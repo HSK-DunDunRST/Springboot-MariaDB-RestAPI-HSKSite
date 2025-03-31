@@ -5,8 +5,8 @@ spring:
     application:
         name: apiboard
     datasource:
-        # url: jdbc:mariadb://10.12.9.4:3307/hsk_board
-        url: jdbc:mariadb://127.0.0.1:3307/hsk_rest_api
+        url: jdbc:mariadb://10.12.9.4:3307/hsk_rest_api
+        # url: jdbc:mariadb://127.0.0.1:3307/hsk_rest_api
         username: JavaHSK
         password: Java1234
         driver-class-name: org.mariadb.jdbc.Driver

@@ -8,7 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import kr.co.ipdisk.dundunhsk.apiboard.data.dtoSet.BoardRequestDTO;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -33,6 +35,18 @@ public class BoardEntity {
 
     @Column(name = "board_create_date")
     private LocalDateTime boardCreateDate;
-    
 
+    @Builder
+    public BoardEntity(BoardRequestDTO boardRequestDTO){
+        this.boardTableName = boardRequestDTO.getBoardTableName();
+        this.boardName = boardRequestDTO.getBoardName();
+        this.boardDescription = boardRequestDTO.getBoardDescription();
+        this.boardCreateDate = LocalDateTime.now();
+    }
+    
+    public static BoardEntity of(BoardRequestDTO boardRequestDTO){
+        return BoardEntity.builder()
+            .boardRequestDTO(boardRequestDTO)
+            .build();
+    }
 }
