@@ -5,14 +5,16 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.ipdisk.dundunhsk.apiboard.data.dtoSet.ApiResponseDTO;
+import kr.co.ipdisk.dundunhsk.apiboard.data.dtoSet.BoardRequestDTO;
 import kr.co.ipdisk.dundunhsk.apiboard.data.dtoSet.BoardResponseDTO;
 import kr.co.ipdisk.dundunhsk.apiboard.data.entitySet.BoardEntity;
-// import kr.co.ipdisk.dundunhsk.apiboard.data.entitySet.BoardEntity;
 import kr.co.ipdisk.dundunhsk.apiboard.service.BoardService;
 import lombok.RequiredArgsConstructor;
 
@@ -33,4 +35,10 @@ public class BoardController {
     public ApiResponseDTO<List<BoardResponseDTO>> getBoardList(){
         return boardService.getBoardList();
     }
+
+    @PostMapping("/create")
+    public ApiResponseDTO<BoardResponseDTO> createBoard(@RequestBody BoardRequestDTO boardRequestDTO){
+        return boardService.createBoard(boardRequestDTO);
+    }
+    
 }
