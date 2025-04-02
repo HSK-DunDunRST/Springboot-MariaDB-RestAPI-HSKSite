@@ -11,6 +11,7 @@ public class BoardResponseDTO {
     private String boardTableName;
     private String boardName;
     private String boardDescription;
+    private int boardPostCount;
     private LocalDateTime boardCreateDateTime;
 
     private BoardResponseDTO(BoardEntity boardEntity){
@@ -18,6 +19,7 @@ public class BoardResponseDTO {
         this.boardTableName = boardEntity.getBoardTableName();
         this.boardName = boardEntity.getBoardName();
         this.boardDescription = boardEntity.getBoardDescription();
+        this.boardPostCount = boardEntity.getBoardPostCount();
         this.boardCreateDateTime = boardEntity.getBoardCreateDate();
     }
 

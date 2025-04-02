@@ -2,6 +2,8 @@ package kr.co.ipdisk.dundunhsk.apiboard.data.entitySet;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,6 +35,9 @@ public class BoardEntity {
     @Column(name = "board_description")
     private String boardDescription;
 
+    @Column(name = "board_post_count")
+    private int boardPostCount;
+
     @Column(name = "board_create_date")
     private LocalDateTime boardCreateDate;
 
@@ -41,6 +46,7 @@ public class BoardEntity {
         this.boardTableName = boardRequestDTO.getBoardTableName();
         this.boardName = boardRequestDTO.getBoardName();
         this.boardDescription = boardRequestDTO.getBoardDescription();
+        this.boardPostCount = boardRequestDTO.getBoardPostCount();
         this.boardCreateDate = LocalDateTime.now();
     }
     

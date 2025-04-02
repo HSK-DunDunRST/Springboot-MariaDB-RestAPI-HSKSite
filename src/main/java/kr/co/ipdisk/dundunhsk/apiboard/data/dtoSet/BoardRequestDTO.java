@@ -11,5 +11,6 @@ public class BoardRequestDTO {
     private String boardTableName;
     private String boardName;
     private String boardDescription;
+    private int boardPostCount;
     private LocalDateTime boardCreateDateTime;
 }
